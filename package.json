@@ -1,0 +1,11 @@
+{
+  "name": "sph-pfr",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "daniel0611",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.17.0"
+  }
+}
