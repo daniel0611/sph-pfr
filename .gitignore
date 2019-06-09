@@ -1,3 +1,4 @@
 settings.json
 *.png
 node_modules
+dist/
