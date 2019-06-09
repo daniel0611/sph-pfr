@@ -1,14 +1,13 @@
 import puppeteer from "puppeteer";
-import settings from "../settings.json";
-
-// TODO fix double quotes
+import { Settings } from "./settings";
 
 main();
 async function main() {
+    const settings = await Settings.read("./settings.json" || process.env["SPH_CFG"]);
     const browser = await puppeteer.launch();
 
     const page = await browser.newPage();
-    await login(page, browser);
+    await login(page, browser, settings);
 
     await page.goto(`${settings.url}/html/content/internet/portforwarding.html`, { waitUntil: "networkidle0" });
     console.log("Portforwarding settings page loaded.");
@@ -20,10 +19,10 @@ async function main() {
     });
 
     // Unfold rule
-    await page.click("#portuw_forwarding_" + settings.fw_id);
+    await page.click("#portuw_forwarding_" + settings.forwardId);
 
     // Resave port forwarding rule
-    await page.click("#btn_save_portuw_" + settings.fw_id);
+    await page.click("#btn_save_portuw_" + settings.forwardId);
     console.log("Saved port forward rule. Waiting 10 seconds for storing!");
     await page.waitFor(10000);
 
@@ -32,7 +31,7 @@ async function main() {
     await browser.close();
 }
 
-async function login(page: puppeteer.Page, browser: puppeteer.Browser) {
+async function login(page: puppeteer.Page, browser: puppeteer.Browser, settings: Settings) {
     await page.goto(settings.url, { waitUntil: "networkidle0" });
     const loginUrl = page.url();
     console.log("Login page successfully loaded.");
