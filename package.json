@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/node": "^12.6.8",
     "@types/puppeteer": "^1.19.0",
-    "tslint": "^5.18.0",
+    "tslint": "^5.19.0",
     "typescript": "^3.5.3"
   }
 }
