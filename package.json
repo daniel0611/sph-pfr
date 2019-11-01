@@ -16,7 +16,7 @@
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "dependencies": {
-    "puppeteer": "^1.20.0"
+    "puppeteer": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.8",
