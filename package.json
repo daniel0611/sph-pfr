@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.14",
-    "@types/puppeteer": "^2.0.0",
+    "@types/puppeteer": "^2.0.1",
     "tslint": "^5.20.1",
     "typescript": "^3.7.2"
   }
